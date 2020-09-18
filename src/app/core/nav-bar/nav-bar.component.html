@@ -7,10 +7,26 @@
 
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active"><a class="nav-link" href="#">Sign In</a></li>
+            <li class="nav-item active"><button type="button" class="btn btn-link" (click)="showModal()">Sign In</button></li>
         </ul>
     </div>
 </nav>
 
-    
-
+<!-- <a class="nav-link" data-toggle="modal" data-backdrop="static" href="#loginModal">Sign In</a> -->
+<!-- Modal -->
+<div *ngIf="isModalShown" [config]="{ show: true }" (onHidden)="onHidden()" bsModal #signinModal="bs-modal"
+     class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-auto-name" data-keyboard="true" data-backdrop="static">
+  <div class="myModal modal-dialog modal-dialog-scrollable modal-lg" >
+    <div class="modal-content" >
+      <div class="modal-header align-items-center" style="height: 40px;">
+        <!-- <h4 id="dialog-auto-name" class="modal-title pull-left"></h4> -->
+        <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-signin-modal></app-signin-modal>
+      </div>
+    </div>
+  </div>
+</div>
